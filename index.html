@@ -7,13 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laras Sulistyorini 23rd Birthday</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
     <style>
         body {
             margin: 0;
             background: #020202;
             cursor: crosshair;
         }
-        canvas{display:block}
+
+        canvas {
+            display: block
+        }
+
         h1 {
             position: absolute;
             top: 20%;
@@ -21,15 +26,162 @@
             transform: translate(-50%, -50%);
             color: #fff;
             font-family: "Source Sans Pro";
-            font-size: 5em;
+            font-size: 4em;
             font-weight: 900;
             -webkit-user-select: none;
             user-select: none;
+        }
+
+        h2 {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-family: 'Great Vibes', cursive;
+            font-size: 5em;
+            font-weight: 200;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /*
+          ##Device = Desktops HiDPI screen
+          ##Screen = 1440px to higher resolution desktops
+        */
+        @media (min-width: 1440px) {
+            h1 {
+                width: 100%;
+                text-align: center;
+                font-size: 5em;
+            }
+
+            h2 {
+                width: 100%;
+                text-align: center;
+                top: 40%;
+                font-size: 5em;
+            }
+        }
+
+        /*
+          ##Device = Desktops
+          ##Screen = 1281px to 1439px
+        */
+        @media (min-width: 1281px) and (max-width: 1439px) {
+            h1 {
+                width: 100%;
+                text-align: center;
+                font-size: 4em;
+            }
+
+            h2 {
+                width: 100%;
+                text-align: center;
+                top: 37%;
+                font-size: 4em;
+            }
+        }
+
+        /*
+          ##Device = Laptops, Desktops
+          ##Screen = B/w 1025px to 1280px
+        */
+        @media (min-width: 1025px) and (max-width: 1280px) {
+            h1 {
+                width: 100%;
+                text-align: center;
+                font-size: 3.5em;
+            }
+
+            h2 {
+                width: 100%;
+                text-align: center;
+                top: 35%;
+                font-size: 3.5em;
+            }
+        }
+
+        /*
+          ##Device = Tablets, Ipads (portrait)
+          ##Screen = B/w 768px to 1024px
+        */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            h1 {
+                width: 100%;
+                text-align: center;
+                font-size: 3.5em;
+            }
+
+            h2 {
+                width: 100%;
+                text-align: center;
+                top: 35%;
+                font-size: 3.5em;
+            }
+        }
+
+        /*
+          ##Device = Tablets, Ipads (landscape)
+          ##Screen = B/w 768px to 1024px
+        */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            h1 {
+                width: 100%;
+                text-align: center;
+                font-size: 3.5em;
+            }
+
+            h2 {
+                width: 100%;
+                text-align: center;
+                top: 35%;
+                font-size: 3.5em;
+            }
+        }
+
+        /*
+          ##Device = Low Resolution Tablets, Mobiles (Landscape)
+          ##Screen = B/w 481px to 767px
+        */
+        @media (min-width: 481px) and (max-width: 767px) {
+            h1 {
+                width: 100%;
+                text-align: center;
+                font-size: 3em;
+            }
+
+            h2 {
+                width: 100%;
+                text-align: center;
+                top: 30%;
+                font-size: 3em;
+            }
+        }
+
+        /*
+          ##Device = Most of the Smartphones Mobiles (Portrait)
+          ##Screen = B/w 320px to 479px
+        */
+        @media (min-width: 320px) and (max-width: 480px) {
+            h1 {
+                width: 100%;
+                text-align: center;
+                font-size: 2.5em;
+            }
+
+            h2 {
+                width: 100%;
+                text-align: center;
+                top: 30%;
+                font-size: 3em;
+            }
         }
     </style>
 </head>
 <body>
 <h1>Happy 23<sup>rd</sup> Birthday</h1>
+<h2>Laras Sulistyorini</h2>
 <canvas id="birthday"></canvas>
 <script>
     // helper functions
@@ -64,8 +216,8 @@
             let x = evt.clientX || evt.touches && evt.touches[0].pageX
             let y = evt.clientY || evt.touches && evt.touches[0].pageY
 
-            let count = random(3,5)
-            for(let i = 0; i < count; i++) this.fireworks.push(new Firework(
+            let count = random(3, 5)
+            for (let i = 0; i < count; i++) this.fireworks.push(new Firework(
                 random(this.spawnA, this.spawnB),
                 this.height,
                 x,
@@ -79,7 +231,7 @@
 
         update(delta) {
             ctx.globalCompositeOperation = 'hard-light'
-            ctx.fillStyle = `rgba(20,20,20,${ 7 * delta })`
+            ctx.fillStyle = `rgba(20,20,20,${7 * delta})`
             ctx.fillRect(0, 0, this.width, this.height)
 
             ctx.globalCompositeOperation = 'lighter'
@@ -117,6 +269,7 @@
             this.shade = shade
             this.history = []
         }
+
         update(delta) {
             if (this.dead) return
 
@@ -179,7 +332,7 @@
     document.onclick = evt => birthday.onClick(evt)
     document.ontouchstart = evt => birthday.onClick(evt)
 
-    ;(function loop(){
+    ;(function loop() {
         requestAnimationFrame(loop)
 
         let now = timestamp()
