@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=.7, minimum-scale=.7">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Laras Sulistyorini 23rd Birthday</title>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/greetings.css">
+</head>
+<body>
+<div class="card">
+    <div class="imgBox">
+        <div class="bark">
+            <video id="video" controls loop muted>
+                <source src="assets/images/backcover-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <img src="assets/images/cover-card.jpg">
+    </div>
+    <div class="details">
+        <h4 class="color1">HAPPY 23<sup>rd</sup> BIRTHDAY</h4>
+        <h4 class="color2 margin">Laras Sulistyorini</h4>
+        <p>Dear Laras,</p>
+        <p>Hmm apa ya wkwkk.. Ohh oh gini aja,</p>
+        <p>Happy 23<sup>rd</sup> Birthday ya sayang,</p>
+        <p>Semoga panjang umur, sehat selalu,</p>
+        <p>Maaf sebulan ini selalu nyebelin,</p>
+        <p>Ow ya semoga suka sama kadonya,</p>
+        <p>Aamiin YaRabb.</p>
+        <p class="text-right">HBD bae!</p>
+        <p class="text-right">♥Fiqy</p>
+    </div>
+</div>
+<script src="assets/js/jquery-2.1.4.min.js"></script>
+<script>
+    var vid = document.getElementById("video");
+    $('.card').hover(function(){
+        vid.muted = false;
+        vid.play();
+    }, function(){
+        vid.muted = true;
+        vid.pause();
+    });
+</script>
+</body>
+</html>
