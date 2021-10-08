@@ -6,6 +6,17 @@ html, body, .container {
     font-family: "Kaushan Script", "Sail", cursive;
 }
 
+html.force-landscape {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
 body {
     background: #e74;
     overflow: hidden;
@@ -23,7 +34,7 @@ canvas#canvas {
 }
 
 div#beach {
-    background-image: url(https://dl.dropbox.com/s/oe0oce2udq44bj5/beachsil2.png);
+    /*background-image: url(https://dl.dropbox.com/s/oe0oce2udq44bj5/beachsil2.png);*/
     /* background-size: cover; */
     background-position: bottom right;
     background-size: 1700px;
@@ -36,9 +47,19 @@ div#video {
     bottom: 235px;
 }
 
+div#video.force-landscape {
+    right: 247px;
+    bottom: 202px;
+}
+
 div#video iframe, div#video img {
     width: 288px;
     height: 185px;
+}
+
+div#video.force-landscape iframe, div#video.force-landscape img {
+    width: 245px;
+    height: 150px;
 }
 
 #people {
