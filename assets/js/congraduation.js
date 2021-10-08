@@ -13,6 +13,28 @@ window.requestAnimFrame = function () {
         };
 }();
 
+//--Create a page monitor and wait for the wechat page to load to trigger the audio playback
+document.addEventListener('DOMContentLoaded', function () {
+    function audioAutoPlay() {
+        var audio = document.getElementById('bgm');
+        audio.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+    }
+
+    audioAutoPlay();
+});
+//--Create touch monitor. When the browser opens the page, touch the screen to trigger the event and play the audio
+document.addEventListener('touchstart', function () {
+    function audioAutoPlay() {
+        var audio = document.getElementById('bgm');
+        audio.play();
+    }
+
+    audioAutoPlay();
+});
+
 // now we will setup our basic variables for the demo
 var canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d'),
