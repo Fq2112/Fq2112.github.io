@@ -310,4 +310,5 @@ function reveal() {
     // document.querySelector('#video').appendChild(ifrm);
 
     $("#video").show();
+    $("#bgm").get(0).play();
 }
